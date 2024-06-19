@@ -1,0 +1,29 @@
+app:
+    name: Logstash
+    code: LOGSTASH
+    notify: 
+
+build:
+    version: 7.11
+    env: DEV
+    build_file: none
+    output_files: output/*.zip
+    image_template: logstash-7.11
+
+deploy:
+    context: sranjan1995/DEV
+    type: statefulset
+    ingress: none
+    replicas: 1
+    port:
+    - 5044
+    - 9600
+
+volumes:
+  - claim: logstash-data
+    mount: /appz/data
+    name: data
+    size: 5Gi
+
+properties:
+    revision: 0
