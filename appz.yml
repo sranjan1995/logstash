@@ -26,4 +26,4 @@ volumes:
     size: 5Gi
 
 properties:
-    revision: 1
+    revision: 2
